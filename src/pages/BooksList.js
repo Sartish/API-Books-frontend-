@@ -31,9 +31,9 @@ export const BooksList = () => {
   return (
     <Grid container className={classes.root} spacing={1}>
       {books.map((book) => (
-        <div className="book-card" key={book.id}>
+        <div className="book-card" key={book.bookID}>
           <Card className={classes.card}>
-            <Link to={`/book/${book.id}`}>
+            <Link to={`/books/book/${book.bookID}`}>
               <h3>{book.title}</h3>
               <p>{book.authors}</p>
             </Link>
