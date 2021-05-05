@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-// import { FrontPage } from "./pages/FrontPage";
-// import { FrontPage } from "./pages/FrontPage";
+import { FrontPage } from "./pages/FrontPage";
 import { BooksList } from "./pages/BooksList";
 import { OneBook } from "./pages/OneBook";
 import { TopRated } from "./pages/TopRated";
@@ -14,9 +13,9 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/">
+        <Route path="/">
           <FrontPage />
-        </Route> */}
+        </Route>
 
         <Route path="/books" exact>
           <BooksList />

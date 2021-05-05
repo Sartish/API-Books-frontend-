@@ -10,7 +10,7 @@ export const OneBook = () => {
     fetch(`https://saras-books.herokuapp.com/books/book/${bookID}`)
       .then((res) => res.json())
       .then((json) => {
-        setBook(json);
+        setBook(json.book);
       });
   }, [bookID]);
   return (
