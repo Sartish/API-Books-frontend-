@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import library from "./library.png";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   paper: {
@@ -19,7 +20,9 @@ export const FrontPage = () => {
   return (
     <Paper className={classes.paper}>
       <h3>first page</h3>
-      <Button>CLick</Button>
+      <Link to="/books" exact="true">
+        CLick
+      </Link>
     </Paper>
   );
 };

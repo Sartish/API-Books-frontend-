@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <FrontPage />
         </Route>
 
@@ -27,14 +27,6 @@ export const App = () => {
 
         <Route path="/books/top-rated">
           <TopRated />
-        </Route>
-
-        <Route path="/books/pages">
-          <BooksPages />
-        </Route>
-
-        <Route path="/books/pages/:pageCount">
-          <PageSearch />
         </Route>
       </Switch>
     </BrowserRouter>

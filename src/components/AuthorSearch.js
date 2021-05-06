@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TitleSearch = () => {
+const AuthorSearch = () => {
   const classes = useStyles();
 
   const [books, setBooks] = useState([]);
@@ -87,4 +87,4 @@ const TitleSearch = () => {
     </>
   );
 };
-export default TitleSearch;
+export default AuthorSearch;
