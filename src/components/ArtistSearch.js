@@ -29,23 +29,23 @@ const useStyles = makeStyles({
   },
 });
 
-const TitleSearch = ({ onSearchResult }) => {
+const ArtistSearch = ({ onSearchResult }) => {
   const classes = useStyles();
 
-  const [title, setTitle] = useState("");
+  const [artist, setArtist] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`https://saras-mongo-api.herokuapp.com/songs/title/${title}`)
+    fetch(`https://saras-mongo-api.herokuapp.com/songs/artist/${artist}`)
       .then((response) => response.json())
       .then((json) => {
         onSearchResult(json);
-        setTitle("");
+        setArtist("");
       })
       .catch(() => {
         console.error();
-        setTitle("");
+        setArtist("");
       });
   };
 
@@ -58,16 +58,15 @@ const TitleSearch = ({ onSearchResult }) => {
             id="outlined-basic"
             label="Artist name"
             variant="outlined"
-            onChange={(event) => setTitle(event.target.value)}
-            value={title}
+            onChange={(event) => setArtist(event.target.value)}
+            value={artist}
           />
           <Button className="add" type="submit" onClick={handleSubmit}>
-            Search song title
+            Search Artist
           </Button>
         </form>
       </div>
     </>
   );
 };
-export default TitleSearch;
-
+export default ArtistSearch;

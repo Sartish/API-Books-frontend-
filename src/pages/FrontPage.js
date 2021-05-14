@@ -1,17 +1,26 @@
 import React from "react";
-import { Button, Paper } from "@material-ui/core";
+import { Paper, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import library from "./library.png";
+import front from "./frontsong.png";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   paper: {
-    backgroundImage: `url(${library})`,
+    position: "relative",
+    backgroundImage: `url(${front})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     width: "100vw",
     height: "100vh",
+  },
+  container: {
+    position: "absolute",
+    display: "flex",
+    top: "85%",
+    left: "50%"
   },
 });
 
@@ -19,10 +28,16 @@ export const FrontPage = () => {
   const classes = useStyles();
   return (
     <Paper className={classes.paper}>
-      <h3>first page</h3>
-      <Link to="/books" exact="true">
-        CLick
-      </Link>
+      <Container className={classes.container}>
+        <Button><Link to="/songs" exact="true">
+          Song Library
+        </Link></Button>
+        <Button>
+        <Link to="/books/top-rated" exact="true">
+          Top list
+        </Link>
+        </Button>
+      </Container>
     </Paper>
   );
 };

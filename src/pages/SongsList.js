@@ -1,44 +1,76 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
-import { CardActionArea, CardContent, Typography, Grid, Paper, Button } from "@material-ui/core";
+import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button } from "@material-ui/core";
 import Searches from "../components/Searches";
+import image from "./cd.png"
 
 const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "30px",
+  paper: {
+    textAlign: 'left',
+    padding: "20px",
+    width: "400px",
+    height: "500px",
+    margin: "20px",
+    backgroundColor: "#fcecdd"
   },
-  card: {
-    width: "140px",
-    height: "200px",
-    margin: "10px",
-    padding: "10px",
+  heading: {
+    backgroundColor: "#ffc288",
+    borderRadius: "10px",
+    padding: "20px"
   },
+  button: {
+    backgroundColor: "#b34180",
+    textDecoration: "none"
+  },
+  Link: {
+    textDecoration: "none"
+  }
 });
 
 // The Effect Hook lets you perform side effects in function components:
-export const TopRated = () => {
+export const SongsList = () => {
   const classes = useStyles();
+
   const [songs, setSongs] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1)
 
   useEffect(() => {
-    fetch("https://saras-mongo-api.herokuapp.com/songs/top-rated")
+    fetch(`https://saras-mongo-api.herokuapp.com/songs?page=${pageNumber}`)
       .then((res) => res.json())
       .then((json) => {
         setSongs(json.data);
       });
-  }, []);
+  }, [pageNumber]);
+
+  const moveNextPage = () => {
+    setPageNumber(pageNumber + 1)
+  }
+
+  const movePreviousPage = () => {
+    setPageNumber(pageNumber -1)
+  }
 
   return (
     <>
- <Grid
+      <Searches />
+      <Typography
+      className={classes.heading}
+      gutterBottom variant="h5" 
+      component="h2">
+        500 greatest hits of all times
+      </Typography>
+      <div className="page-buttons">
+        <p>{`Page ${pageNumber} / 15`}</p>
+        <Button className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous Page</Button>
+        <Button className={classes.button} onClick={moveNextPage} disabled={pageNumber === 15}>Next Page</Button>
+      </div>
+      <Grid
         container
         direction="row"
         justify="space-around"
         alignItems="center"
->
+      >
       {songs.map((song) => (
           <Paper className={classes.paper} key={song.id}>
       <CardActionArea>
@@ -48,6 +80,13 @@ export const TopRated = () => {
           component="h2">
             {song.artist}
           </Typography>
+        <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="140"
+          image={image}
+          title="Contemplative Reptile"
+        />
         <CardContent>
           <Typography 
           gutterBottom variant="h5" 
@@ -73,7 +112,7 @@ export const TopRated = () => {
       </CardActionArea>
       </Paper>
       ))}
-      </Grid>
+     </Grid>
     </>
   );
 };

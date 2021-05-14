@@ -2,11 +2,9 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { FrontPage } from "./pages/FrontPage";
-import { BooksList } from "./pages/BooksList";
-import { OneBook } from "./pages/OneBook";
+import { SongsList } from "./pages/SongsList";
+import { OneSong } from "./pages/OneSong";
 import { TopRated } from "./pages/TopRated";
-import { BooksPages } from "./pages/BooksPages";
-import { PageSearch } from "./pages/PagesSearch";
 
 //path  Its most basic responsibility is to render some UI when its path matches the current URL.
 export const App = () => {
@@ -17,15 +15,15 @@ export const App = () => {
           <FrontPage />
         </Route>
 
-        <Route path="/books" exact>
-          <BooksList />
+        <Route path="/songs" exact>
+          <SongsList />
         </Route>
 
-        <Route path="/books/book/:bookID">
-          <OneBook />
+        <Route path="/songs/song/:id" exact>
+          <OneSong />
         </Route>
 
-        <Route path="/books/top-rated">
+        <Route path="/songs/top-rated">
           <TopRated />
         </Route>
       </Switch>
