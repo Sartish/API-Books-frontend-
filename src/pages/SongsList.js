@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
-import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button } from "@material-ui/core";
-import Searches from "../components/Searches";
+import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container } from "@material-ui/core";
 import image from "./cd.png"
+import { FrontPage } from "./FrontPage";
+
 
 const useStyles = makeStyles({
   paper: {
     textAlign: 'left',
     padding: "20px",
-    width: "400px",
+    width: "300px",
     height: "500px",
     margin: "20px",
     backgroundColor: "#fcecdd"
@@ -17,13 +18,35 @@ const useStyles = makeStyles({
   heading: {
     backgroundColor: "#ffc288",
     borderRadius: "10px",
-    padding: "20px"
+    padding: "20px",
+ 
   },
+  header: {
+    height: "400px",
+    width: "300px"
+  },
+
+  // top: {
+  //   backgroundImage: `url(${front})`,
+  //   backgroundRepeat: "no-repeat",
+  //   height: "300px",
+  //   width: "300px",
+  //   margin: "20px"
+
+  // },
+  // bottom: {
+  //   backgroundImage: `url(${header})`,
+  //   backgroundRepeat: "no-repeat",
+  //   height: "400px",
+  //   width: "600px",
+  //   margin: "20px"
+  // },
   button: {
-    backgroundColor: "#b34180",
-    textDecoration: "none"
+    textDecoration: "none",
+    backgroundColor: "lightgrey",
+    margin: "5px",
   },
-  Link: {
+  link: {
     textDecoration: "none"
   }
 });
@@ -53,17 +76,12 @@ export const SongsList = () => {
 
   return (
     <>
-      <Searches />
-      <Typography
-      className={classes.heading}
-      gutterBottom variant="h5" 
-      component="h2">
-        500 greatest hits of all times
-      </Typography>
+    <Container>
+      <FrontPage />
       <div className="page-buttons">
-        <p>{`Page ${pageNumber} / 15`}</p>
-        <Button className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous Page</Button>
+        <Button variant="primary" className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous Page</Button>
         <Button className={classes.button} onClick={moveNextPage} disabled={pageNumber === 15}>Next Page</Button>
+        <p>{`Page ${pageNumber} / 15`}</p>
       </div>
       <Grid
         container
@@ -82,10 +100,10 @@ export const SongsList = () => {
           </Typography>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt="CD image"
           height="140"
           image={image}
-          title="Contemplative Reptile"
+          title="CD image"
         />
         <CardContent>
           <Typography 
@@ -103,7 +121,7 @@ export const SongsList = () => {
               `${song.description.substring(0, 80)}...` : song.description
                 }</p>
           </Typography>
-          <Link to={`/songs/song/${song.id}`} exact>
+          <Link className={classes.link} to={`/songs/song/${song.id}`} exact>
                 <Button className={classes.button}>
                 Read more
                 </Button>
@@ -113,6 +131,7 @@ export const SongsList = () => {
       </Paper>
       ))}
      </Grid>
+    </Container>
     </>
   );
 };

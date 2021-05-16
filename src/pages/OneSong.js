@@ -15,6 +15,9 @@ const useStyles = makeStyles({
   paper: {
     padding: "50px",
     color: "#686868"
+  },
+  link: {
+    textDecoration: "none"
   }
 })
 
@@ -47,7 +50,7 @@ export const OneSong = () => {
       
       <div className={classes.root}>
       <Paper className={classes.paper} elevation={3}>
-      <Link to="/songs" exact="true">
+      <Link className={classes.link} to="/songs" exact="true">
       Back to library
       </Link>
         <h1>🎶 {song.title} by {song.artist}</h1> 

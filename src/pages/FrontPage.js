@@ -1,43 +1,70 @@
 import React from "react";
-import { Paper, Container, Button } from "@material-ui/core";
+import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import front from "./frontsong.png";
-import { Link } from "react-router-dom";
+import front from "./Aretha-front.jpeg"
+import header from "./trying.png"
 
 const useStyles = makeStyles({
-  paper: {
-    position: "relative",
-    backgroundImage: `url(${front})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100vw",
-    height: "100vh",
-  },
-  container: {
-    position: "absolute",
-    display: "flex",
-    top: "85%",
-    left: "50%"
-  },
+    paper: {
+      textAlign: 'left',
+      padding: "20px",
+      width: "300px",
+      height: "500px",
+      margin: "20px",
+      backgroundColor: "#fcecdd"
+    },
+    heading: {
+      backgroundColor: "#ffc288",
+      borderRadius: "10px",
+      padding: "20px",
+   
+    },
+    header: {
+      height: "400px",
+      width: "300px"
+    },
+  
+    top: {
+      backgroundImage: `url(${front})`,
+      backgroundRepeat: "no-repeat",
+      height: "300px",
+      width: "300px",
+      margin: "20px"
+  
+    },
+    bottom: {
+      backgroundImage: `url(${header})`,
+      backgroundRepeat: "no-repeat",
+      height: "400px",
+      width: "600px",
+      margin: "20px"
+    },
+
 });
 
 export const FrontPage = () => {
   const classes = useStyles();
   return (
-    <Paper className={classes.paper}>
-      <Container className={classes.container}>
-        <Button><Link to="/songs" exact="true">
-          Song Library
-        </Link></Button>
-        <Button>
-        <Link to="/books/top-rated" exact="true">
-          Top list
-        </Link>
-        </Button>
-      </Container>
-    </Paper>
+    <Grid
+        container
+        direction="row"
+        alignItems="center"
+      >
+    <CardActionArea className={classes.top}>
+       <Typography
+      className={classes.header}
+      gutterBottom variant="h5" 
+      component="h2">
+      </Typography> 
+      </CardActionArea> 
+      <CardActionArea className={classes.bottom}>
+       <Typography
+      className={classes.header}
+      gutterBottom variant="h5" 
+      component="h2">
+      </Typography> 
+      </CardActionArea> 
+      </Grid>
+  
   );
 };

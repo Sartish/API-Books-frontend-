@@ -14,19 +14,7 @@ const useStyles = makeStyles({
     color: "#FF0066",
   },
 
-  root: {
-    width: "500px",
-    margin: "10px",
-    color: "#0a043c",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "30px",
-  },
-  containter: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
+
 });
 
 const ArtistSearch = ({ onSearchResult }) => {
