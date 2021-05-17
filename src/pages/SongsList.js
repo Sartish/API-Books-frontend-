@@ -1,18 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
-import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container } from "@material-ui/core";
+import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container, Box } from "@material-ui/core";
 import image from "./cd.png"
 import { FrontPage } from "./FrontPage";
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
+const font =  "'Montserrat', sans-serif";
+
+const defaultProps = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginBottom: "20px"
+};
 
 const useStyles = makeStyles({
   pages: {
     display: "flex",
     justifyContent: "space-between",
     marginTop: "20px",
-    marginLeft: "50px",
-    marginRight: "50px"
+    marginLeft: "40px",
+    marginRight: "40px",
+    color: "#989898",
+    fontSize: "20px",
+    fontWeight: "bold"
+  },
+  text: {
+    fontFamily: font,
+    fontSize: "40px",
+    marginLeft: "20px",
+    color: "#989898",
+    fontWeight: "bold"
+  },
+  note: {
+    color: "#f05945",
+    fontSize: "35px"
   },
   paper: {
     textAlign: 'left',
@@ -20,22 +43,30 @@ const useStyles = makeStyles({
     width: "300px",
     height: "500px",
     margin: "20px",
-    backgroundColor: "#fcecdd"
+    backgroundColor: "#fcecdd",
+    fontFamily: font,
+    color: "#404040",
   },
   heading: {
-    backgroundColor: "#ffc288",
+    backgroundColor: "#5eaaa8",
     borderRadius: "10px",
     padding: "20px",
- 
+    fontFamily: font,
+    color: "#404040",
   },
   header: {
     height: "400px",
     width: "300px"
   },
+  span: {
+    fontWeight: "bold"
+  },
   button: {
-    textDecoration: "none",
     backgroundColor: "lightgrey",
     margin: "5px",
+    color: "#f05945",
+    fontWeight: "bold",
+    fontFamily: font
   },
   link: {
     textDecoration: "none"
@@ -67,13 +98,16 @@ export const SongsList = () => {
 
   return (
     <>
-    
       <FrontPage />
       <Container>
+      <Box {...defaultProps} borderLeft={0} borderRight={0} >
+        <p className={classes.text}>All 500 songs</p>
+        <MusicNoteIcon className={classes.note} />
+      </Box>
       <div className={classes.pages}>
-        <Button variant="primary" className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous Page</Button>
+        <Button variant="primary" className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous</Button>
         <p>{`Page ${pageNumber} / 15`}</p>
-        <Button className={classes.button} onClick={moveNextPage} disabled={pageNumber === 15}>Next Page</Button>
+        <Button className={classes.button} onClick={moveNextPage} disabled={pageNumber === 15}>Next</Button>
       </div>
       <Grid
         container
@@ -88,7 +122,7 @@ export const SongsList = () => {
           className={classes.heading}
           gutterBottom variant="h5" 
           component="h2">
-            {song.artist}
+            {song.title}
           </Typography>
         <CardMedia
           component="img"
@@ -101,15 +135,15 @@ export const SongsList = () => {
           <Typography 
           gutterBottom variant="h5" 
           component="h2">
-            {song.title}
+             {song.artist}
           </Typography>
           <Typography 
           variant="body2" 
           color="textSecondary" 
           component="p">
-            <p>✏️Writers: {song.writers}</p>
-            <p>Released: {song.released}</p>
-            <p>{song.description.length > 80 ?
+            <p><span className={classes.span}>✏️Writers:</span> {song.writers}</p>
+            <p><span className={classes.span}>Released:</span> {song.released}</p>
+            <p><span className={classes.span}>About the song:</span> {song.description.length > 80 ?
               `${song.description.substring(0, 80)}...` : song.description
                 }</p>
           </Typography>

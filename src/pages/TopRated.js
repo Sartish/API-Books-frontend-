@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
-import { CardActionArea, CardContent, CardMedia, Typography, Grid, Paper, Button } from "@material-ui/core";
+import { CardActionArea, CardContent, CardMedia, Typography, Grid, Paper, Button, Box, Container } from "@material-ui/core";
 import image from "./one.png"
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+
+const font =  "'Montserrat', sans-serif";
+
+const defaultProps = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
 
 const useStyles = makeStyles({
   root: {
@@ -11,24 +20,54 @@ const useStyles = makeStyles({
     padding: "30px",
   },
   paper: {
-    width: "400px",
-    height: "450px",
+    textAlign: 'left',
+    padding: "20px",
+    width: "300px",
+    height: "500px",
     margin: "20px",
-    padding: "30px",
-    backgroundColor: "#a3d2ca"
+    backgroundColor: "#fcecdd",
 
   },
-  button: {
-    backgroundColor: "#f05945"
+  text: {
+    fontFamily: font,
+    fontSize: "40px",
+    marginLeft: "20px",
+    color: "#989898",
+    fontWeight: "bold",
+    marginBottom: "0"
   },
-  Link: {
+  paragraph:{
+    fontFamily: font,
+    fontSize: "20px",
+    marginLeft: "20px",
+    color: "#989898",
+    fontWeight: "bold",
+    marginBottom: "40px"
+  },
+  note: {
+    color: "#f05945",
+    fontSize: "35px",
+    marginBottom: "0",
+    marginTop: "40px"
+  },
+  button: {
+    backgroundColor: "#f05945",
+    fontWeight: "bold",
+    fontFamily: font,
+    color: "#404040",
+  },
+  link: {
     textDecoration: "none"
   },
   heading: {
   borderRadius: "10px",
   backgroundColor: "#5eaaa8",
+  color: "#404040",
   padding: "20px"
-  }
+  },
+  span: {
+    fontWeight: "bold"
+  },
 });
 
 // The Effect Hook lets you perform side effects in function components:
@@ -45,57 +84,67 @@ export const TopRated = () => {
   }, []);
 
   return (
+
     <>
-      <Grid className={classes.grid}
-      container
-      direction="row"
-      justify="space-around"
-      alignItems="center"
-      >
-        <div className={classes.wrapper}>
-        {songs.map((song) => (
-          <Paper className={classes.paper} key={song.id}>
-          <CardActionArea>
+      <Container>
+        <Box {...defaultProps} borderLeft={0} borderRight={0} >
+          <p className={classes.text}>All nr One songs</p>
+          <MusicNoteIcon className={classes.note} /> 
+          </Box>
+          <Box {...defaultProps} borderLeft={0} borderRight={0} >
+          <p className={classes.paragraph}>Her you find all songs that has been number ONE on Billboard</p>
+        </Box>
+        <Grid
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+        >
+          {/* <div className={classes.wrapper}> */}
+          {songs.map((song) => (
+            <Paper className={classes.paper} key={song.id}>
+            <CardActionArea>
+              <Typography 
+              className={classes.heading}
+              gutterBottom variant="h5" 
+              component="h2">
+                {song.title}
+              </Typography>
+              <CardMedia className={classes.image}
+            component="img"
+            alt="CD image"
+            height="140"
+            image={image}
+            title="CD image"
+          />
+          <CardContent>
             <Typography 
-            className={classes.heading}
             gutterBottom variant="h5" 
             component="h2">
-              {song.title}
+              {song.artist}
             </Typography>
-            <CardMedia className={classes.image}
-          component="img"
-          alt="CD image"
-          height="140"
-          image={image}
-          title="CD image"
-        />
-        <CardContent>
-          <Typography 
-          gutterBottom variant="h5" 
-          component="h2">
-            {song.artist}
+            <Typography 
+              variant="body2" 
+              color="textSecondary" 
+              component="p">
+                <p><span className={classes.span}>✏️Writers:</span> {song.writers}</p>
+                <p><span className={classes.span}>Released:</span> {song.released}</p>
+                <p><span className={classes.span}>About the song:</span> {song.description.length > 80 ?
+                  `${song.description.substring(0, 80)}...` : song.description
+                    }</p>
           </Typography>
-          <Typography 
-          variant="body2" 
-          color="textSecondary" 
-          component="p">
-            <p>✏️Writers: {song.writers}</p>
-            <p>Released: {song.released}</p>
-            <p>{song.description.length > 80 ?
-              `${song.description.substring(0, 80)}...` : song.description
-                }</p>
-          </Typography>
-          <Link to={`/songs/song/${song.id}`} exact>
-                <Button className={classes.button}>
-                Read more
-                </Button>
-              </Link>
-        </CardContent>
-      </CardActionArea>
-      </Paper>
-      ))}
-      </div>
-      </Grid>
+            <Link className={classes.link} to={`/songs/song/${song.id}`} exact>
+                  <Button className={classes.button}>
+                  Read more
+                  </Button>
+                </Link>
+          </CardContent>
+        </CardActionArea>
+        </Paper>
+        ))}
+        {/* </div> */}
+        </Grid>
+      </Container>
     </>
   );
 };

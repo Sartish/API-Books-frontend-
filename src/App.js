@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { FrontPage } from "./pages/FrontPage";
+// import { FrontPage } from "./pages/FrontPage";
 import { SongsList } from "./pages/SongsList";
 import { OneSong } from "./pages/OneSong";
 import { TopRated } from "./pages/TopRated";
@@ -14,9 +14,6 @@ export const App = () => {
     <BrowserRouter>
         <Nav />
       <Switch>
-        <Route path="/" exact>
-          <FrontPage />
-        </Route>
 
         <Route path="/songs" exact>
           <SongsList />

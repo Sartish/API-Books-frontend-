@@ -2,7 +2,7 @@ import React from "react";
 import { CardActionArea, Typography, Grid, makeStyles, useTheme, useMediaQuery} from "@material-ui/core";
 import front from "./Aretha-front.jpeg"
 import header from "./small.png"
-import banner from "./Banner.png"
+import banner from "./gold.png"
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${banner})`,
     },
+
   },
   top: {
     backgroundImage: `url(${front})`,

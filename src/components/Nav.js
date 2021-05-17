@@ -8,13 +8,16 @@ const font =  "'Montserrat', sans-serif";
 
 const useStyles = makeStyles({
     menu: {
-      display: "flex",
-      justifyContent: "space-between",
-      padding: "12px",
-      color: "#f05945",
-      backgroundColor: "#ffc288",
-      fontFamily: font,
-      fontSize: "700"
+    display: "flex",
+    justifyContent: "space-between",
+    paddingTop: "20px",
+    paddingRight: "30px",
+    paddingLeft: "30px",
+    paddingBottom: "10px",
+    color: "#f05945",
+    backgroundColor:"#D3D3D3",
+    fontFamily: font,
+    fontWeight: "bold",
     },
     home: {
     textDecoration: "none",
@@ -23,20 +26,32 @@ const useStyles = makeStyles({
     },
     library: {
     textDecoration: "none",
-    color: "#404040"
+    color: "#404040",
+    '&:hover': {
+      color: "#f05945",
+    }
+
     },
     chart: {
     textDecoration: "none",
     marginLeft: "25px",
-    color: "#404040"
+    color: "#404040",
+    '&:hover': {
+      color: "#f05945",
+    }
+
     },
     about: {
         textDecoration: "none",
         marginLeft: "25px",
-        color: "#404040"
+        color: "#404040",
+        '&:hover': {
+          color: "#f05945",
+        }
     },
     homeIcon: {
-    fontSize: "30px"
+    fontSize: "30px",
+    color: "#f05945",
     }
 
 })
@@ -65,13 +80,6 @@ export const Nav = () => {
             About
         </NavLink>
         </div>
-{/* 
-        <NavLink to="/reviewers-choice">
-          About
-        </NavLink>
-        <NavLink to="/documentation">
-          Bookish API Documentation
-        </NavLink> */}
     </div>
   )
 }
