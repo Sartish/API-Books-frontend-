@@ -7,6 +7,13 @@ import { FrontPage } from "./FrontPage";
 
 
 const useStyles = makeStyles({
+  pages: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "20px",
+    marginLeft: "50px",
+    marginRight: "50px"
+  },
   paper: {
     textAlign: 'left',
     padding: "20px",
@@ -25,22 +32,6 @@ const useStyles = makeStyles({
     height: "400px",
     width: "300px"
   },
-
-  // top: {
-  //   backgroundImage: `url(${front})`,
-  //   backgroundRepeat: "no-repeat",
-  //   height: "300px",
-  //   width: "300px",
-  //   margin: "20px"
-
-  // },
-  // bottom: {
-  //   backgroundImage: `url(${header})`,
-  //   backgroundRepeat: "no-repeat",
-  //   height: "400px",
-  //   width: "600px",
-  //   margin: "20px"
-  // },
   button: {
     textDecoration: "none",
     backgroundColor: "lightgrey",
@@ -76,12 +67,13 @@ export const SongsList = () => {
 
   return (
     <>
-    <Container>
+    
       <FrontPage />
-      <div className="page-buttons">
+      <Container>
+      <div className={classes.pages}>
         <Button variant="primary" className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous Page</Button>
-        <Button className={classes.button} onClick={moveNextPage} disabled={pageNumber === 15}>Next Page</Button>
         <p>{`Page ${pageNumber} / 15`}</p>
+        <Button className={classes.button} onClick={moveNextPage} disabled={pageNumber === 15}>Next Page</Button>
       </div>
       <Grid
         container

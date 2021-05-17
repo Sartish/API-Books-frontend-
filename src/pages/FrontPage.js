@@ -1,55 +1,66 @@
 import React from "react";
-import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { CardActionArea, Typography, Grid, makeStyles, useTheme, useMediaQuery} from "@material-ui/core";
 import front from "./Aretha-front.jpeg"
-import header from "./trying.png"
+import header from "./small.png"
+import banner from "./Banner.png"
 
-const useStyles = makeStyles({
-    paper: {
-      textAlign: 'left',
-      padding: "20px",
-      width: "300px",
-      height: "500px",
-      margin: "20px",
-      backgroundColor: "#fcecdd"
+const useStyles = makeStyles(theme => ({
+  grid: {
+    backgroundColor:  '#a3d2ca',
+    backgroundImage: 'none',
+    [theme.breakpoints.up('sm')]: {
+      backgroundColor: 'none',
     },
-    heading: {
-      backgroundColor: "#ffc288",
-      borderRadius: "10px",
-      padding: "20px",
-   
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: `url(${banner})`,
     },
-    header: {
-      height: "400px",
-      width: "300px"
+  },
+  top: {
+    backgroundImage: `url(${front})`,
+    backgroundRepeat: "no-repeat",
+    height: "300px",
+    width: "300px",
+    // [theme.breakpoints.up('sm')]: {
+    //   with: '200px',
+    // },
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: 'none',
+      height: "580px"
     },
-  
-    top: {
-      backgroundImage: `url(${front})`,
-      backgroundRepeat: "no-repeat",
-      height: "300px",
-      width: "300px",
-      margin: "20px"
-  
+  },
+  bottom: {
+    backgroundImage: `url(${header})`,
+    backgroundRepeat: "no-repeat",
+    height: "400px",
+    width: "350px",
+    // [theme.breakpoints.up('sm')]: {
+    //   with: '300px',
+    // },
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: 'none',
     },
-    bottom: {
-      backgroundImage: `url(${header})`,
-      backgroundRepeat: "no-repeat",
-      height: "400px",
-      width: "600px",
-      margin: "20px"
-    },
+  },
 
-});
+    // header: {
+    //   height: "400px",
+    //   width: "300px",
+    //   marginLeft: "20px",
+    // },
+
+}))
 
 export const FrontPage = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  // const showText = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
-    <Grid
+    <Grid className={classes.grid}
         container
         direction="row"
         alignItems="center"
       >
+       {/* {showText && <Typography variant="h1">Appear when 600px and above</Typography>} */}
     <CardActionArea className={classes.top}>
        <Typography
       className={classes.header}
