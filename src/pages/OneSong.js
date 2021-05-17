@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     // backgroundColor: "#f05945",
   },
   wrapper: {
-    backgroundColor: '#a3d2ca',
+    // backgroundColor: '#a3d2ca',
   },
   paper: {
     padding: "50px",

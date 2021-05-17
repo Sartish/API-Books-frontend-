@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     textAlign: 'left',
     padding: "20px",
     width: "300px",
-    height: "500px",
+    height: "470px",
     margin: "20px",
     backgroundColor: "#fcecdd",
     fontFamily: font,
@@ -127,7 +127,8 @@ export const SongsList = () => {
         <CardMedia
           component="img"
           alt="CD image"
-          height="140"
+          height="80"
+          width="80"
           image={image}
           title="CD image"
         />

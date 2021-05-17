@@ -113,12 +113,13 @@ export const TopRated = () => {
               <CardMedia className={classes.image}
             component="img"
             alt="CD image"
-            height="140"
+            height="100"
             image={image}
             title="CD image"
           />
           <CardContent>
             <Typography 
+            height="200"
             gutterBottom variant="h5" 
             component="h2">
               {song.artist}
@@ -126,6 +127,8 @@ export const TopRated = () => {
             <Typography 
               variant="body2" 
               color="textSecondary" 
+              height="200"
+              className={classes.body}
               component="p">
                 <p><span className={classes.span}>✏️Writers:</span> {song.writers}</p>
                 <p><span className={classes.span}>Released:</span> {song.released}</p>
