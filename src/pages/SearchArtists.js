@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import { makeStyles } from "@material-ui/styles";
 import { TextField, Button } from "@material-ui/core";
-import SearchResult from './SearchResult';
+
 
 
 const useStyles = makeStyles({
@@ -20,11 +20,10 @@ const useStyles = makeStyles({
 
 });
 
-const SearchArtists = () => {
+const SearchArtists = ({ onSearchResult }) => {
   const classes = useStyles();
 
-  const [artist, setArtist] = useState("");
-  const [songs, setSongs] =useState([])
+  const [artist, setArtist] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +31,7 @@ const SearchArtists = () => {
     fetch(`https://saras-mongo-api.herokuapp.com/songs/artist/${artist}`)
       .then((response) => response.json())
       .then((json) => {
-        setSongs(json);
+        onSearchResult(json);
         setArtist("");
       })
       .catch(() => {
@@ -58,7 +57,7 @@ const SearchArtists = () => {
           </Button>
         </form>
       </div>
-      <SearchResult songs={songs} />
+      {/* <SearchResult songs={songs} /> */}
     </>
   );
 };

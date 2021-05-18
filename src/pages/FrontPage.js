@@ -21,6 +21,8 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: "no-repeat",
     height: "300px",
     width: "300px",
+    marginLeft: "40px",
+    marginTop: "40px",
     // [theme.breakpoints.up('sm')]: {
     //   with: '200px',
     // },
@@ -34,6 +36,7 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: "no-repeat",
     height: "400px",
     width: "350px",
+    marginLeft: "40px",
     // [theme.breakpoints.up('sm')]: {
     //   with: '300px',
     // },

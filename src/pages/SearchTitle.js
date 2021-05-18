@@ -18,11 +18,11 @@ const useStyles = makeStyles({
 
 });
 
-const SearchTitle = () => {
+const SearchTitle = ({ onSearchResult }) => {
   const classes = useStyles();
 
   const [title, setTitle] = useState("");
-  const [songs, setSongs] = useState([])
+//   const [songs, setSongs] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ const SearchTitle = () => {
     fetch(`https://saras-mongo-api.herokuapp.com/songs/title/${title}`)
       .then((response) => response.json())
       .then((json) => {
-        setSongs(json);
+        onSearchResult(json);
         setTitle("");
       })
       .catch(() => {
@@ -56,7 +56,6 @@ const SearchTitle = () => {
           </Button>
         </form>
       </div>
-      <SearchResult songs={songs} />
     </>
   );
 };
