@@ -68,7 +68,7 @@ export const Nav = () => {
         </NavLink>
 
         <div className={classes.right}>
-        <NavLink className={classes.library} to="/songs">
+        <NavLink className={classes.library} to="/songs/search">
         Search
         </NavLink>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
-import image from "../pages/cd.png"
+// import image from "../pages/cd.png"
 
 const useStyles = makeStyles({
   containter: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Author = ({ songs }) => {
+const Artist = ({ songs }) => {
   const classes = useStyles();
 
   return (
@@ -41,7 +41,7 @@ const Author = ({ songs }) => {
       alignItems="center"
       >
       {songs.map((song) => (
-             <Link to={`/songs/song/${song.id}`} exact>
+             <Link className={classes.link} to={`/songs/song/${song.id}`} exact>
              <Card className={classes.card}>
                <p className="book-title">{song.title}</p>
                <p className="book-author">{song.artist}</p>
@@ -92,7 +92,7 @@ const Author = ({ songs }) => {
   )
 }
 
-export default Author;
+export default Artist;
 
 {/* <Paper className={classes.paper} key={song.id}>
 <CardActionArea>

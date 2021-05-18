@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   },
   text: {
     fontFamily: font,
-    fontSize: "40px",
+    fontSize: "30px",
     marginLeft: "20px",
     color: "#989898",
     fontWeight: "bold",
@@ -88,8 +88,7 @@ export const TopRated = () => {
     <>
       <Container>
         <Box {...defaultProps} borderLeft={0} borderRight={0} >
-          <p className={classes.text}>All nr One songs</p>
-          <MusicNoteIcon className={classes.note} /> 
+          <p className={classes.text}>All nr One songs <MusicNoteIcon className={classes.note} /> </p>
           </Box>
           <Box {...defaultProps} borderLeft={0} borderRight={0} >
           <p className={classes.paragraph}>Her you find all songs that has been number ONE on Billboard</p>

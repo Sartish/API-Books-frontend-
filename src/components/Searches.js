@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Grid } from "@material-ui/core";
-import Author from "./Author";
+import Artist from "./Artist";
 
 import ArtistSearch from "./ArtistSearch";
 import TitleSearch from "./TitleSearch";
+import Artist from "./Artist";
 
 const useStyles = makeStyles({
   // root: {
@@ -21,16 +22,16 @@ const useStyles = makeStyles({
 });
 
 const Searches = () => {
-  const [authorBooks, setAuthorBooks] = useState([]);
-  const [titleBooks, setTitleBooks] = useState([]);
+  const [artistSongs, setArtistSongs] = useState([]);
+  // const [titleSongs, setTitleSongs] = useState([]);
   const classes = useStyles();
 
-  const letUsSeeBooksByAuthor = (songs) => {
-    setAuthorBooks(songs);
+  const letUsSeeSongByArtist = (songs) => {
+    setArtistSongs(songs);
   };
 
-  const letUsSeeBooksByTitle = (songs) => {
-    setTitleBooks(songs);
+  const letUsSeeSongsByTitle = (songs) => {
+    setTitleSongs(songs);
   };
   return (
     <Grid
@@ -40,13 +41,13 @@ const Searches = () => {
     alignItems="center"
     >
       <div>
-        <ArtistSearch onSearchResult={letUsSeeBooksByAuthor} />
+        <ArtistSearch onSearchResult={letUsSeeSongByArtist} />
       </div>
       <div>
-        <TitleSearch setBookForParentComponent={letUsSeeBooksByTitle} />
+        <TitleSearch setBookForParentComponent={letUsSeeSongsByTitle} />
       </div>
-      <Author books={authorBooks} />
-      <Author books={titleBooks} />
+      <Artist songs={artistSongs} />
+      {/* <Artist songs={titleSongs} /> */}
     </Grid>
   );
 };
