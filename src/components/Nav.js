@@ -21,8 +21,12 @@ const useStyles = makeStyles({
     },
     home: {
     textDecoration: "none",
-    color: "#404040",
     fontFamily: font,
+    marginTop: "5px",
+    color: "#404040",
+    '&:hover': {
+      color: "#f05945",
+    }
     },
     library: {
     textDecoration: "none",
@@ -76,7 +80,7 @@ export const Nav = () => {
             Billboard chart
         </NavLink>
 
-        <NavLink className={classes.about} to="/about">
+        <NavLink className={classes.about} to="/songs/about">
             About
         </NavLink>
         </div>

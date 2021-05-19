@@ -7,6 +7,7 @@ import { OneSong } from "./pages/OneSong";
 import { TopRated } from "./pages/TopRated";
 import { Nav } from "./components/Nav"
 import SearchPage from "./pages/SearchPage";
+import About from "./pages/About"
 
 //path  Its most basic responsibility is to render some UI when its path matches the current URL.
 export const App = () => {
@@ -29,6 +30,11 @@ export const App = () => {
         <Route path="/songs/top-rated" exact>
           <TopRated />
         </Route>
+
+        <Route path="/songs/about" exact>
+          <About />
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );

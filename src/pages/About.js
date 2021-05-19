@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Paper, Grid, Box, Container, Button } from "@material-ui/core";
+import { Paper, Grid, Box, Container } from "@material-ui/core";
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-
+import Loader from "../components/Loader"
 
 const font =  "'Montserrat', sans-serif";
 
@@ -44,38 +42,23 @@ const useStyles = makeStyles({
     color: "#f05945",
     fontSize: "35px"
   },
-  button: {
-    backgroundColor: "lightgrey",
-    margin: "5px",
-    color: "#f05945",
-    fontWeight: "bold",
-    fontFamily: font
-  },
-
+  citation: {
+      fontStyle: "italic"
+  }
 })
 
 
 
-export const OneSong = () => {
-  const classes = useStyles();
+export const About = () => {
+    const classes = useStyles();
 
-  const { id } = useParams();
-  const [song, setSong] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://saras-mongo-api.herokuapp.com/songs/song/${id}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        setSong(json);
-      });
-  }, [id]);
   return (
+
+    
     <div className={classes.wrapper}>
       <Container className={classes.container}>
         <Box {...defaultProps} borderLeft={0} borderRight={0} >
-              <p className={classes.text}>About the song...</p>
+              <p className={classes.text}>Thoughts about the site...</p>
               <MusicNoteIcon className={classes.note} /> 
         </Box>
         
@@ -88,16 +71,11 @@ export const OneSong = () => {
         
         <div className={classes.root}>
         <Paper className={classes.paper} elevation={3}>
-        <Link className={classes.link} to="/songs" exact="true">
-        <Button className={classes.button}>Back to library</Button>
-        </Link>
-          <h1>🎶 {song.title} by {song.artist}</h1> 
-            <h3>Writer: {song.writers}</h3>
-            <h3>Producer: {song.producer}</h3>
-            <h3>Released: {song.released}</h3>
-            <h3>Record position: nr {song.position}</h3>
-            <h3>Writers thoughts about the song...</h3>
-            <p>{song.description}</p>
+          <h1>Why this site was created</h1> 
+            <p>When I listen to these songs I reminisce to when I was younger. Sitting in the car with dad driving around with the radio on 🎶. When he heard a song, he recognises he started to sing along. With me daydreaming away in the back seat. Many of the songs got stuck in my head and when I hear them, I feel safe, a sense of melancholy happiness and inspiration.  I created this website to explore the curiosity of some of these old goodies. When where they released, who wrote the songs and what were the thoughts behind creating them?</p>
+                <p>Enjoy😍</p>
+            <p className={classes.citation}>Music does a lot of things for a lot of people. It's transporting, for sure. It can take you right back, years back, to the very moment certain things happened in your life. It's uplifting, it's encouraging, it's strengthening.</p>
+                <p>- Aretha Franklin</p>
         </Paper>
       </div>
       </Grid>
@@ -106,3 +84,5 @@ export const OneSong = () => {
     </div>
   );
 };
+
+export default About 

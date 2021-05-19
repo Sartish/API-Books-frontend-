@@ -3,16 +3,24 @@ import { CardActionArea, Typography, Grid, makeStyles, useTheme, useMediaQuery} 
 import front from "./Aretha-front.jpeg"
 import header from "./small.png"
 import banner from "./gold.png"
+import bannerLarge from "./banner.lg.png"
 
 const useStyles = makeStyles(theme => ({
   grid: {
     backgroundColor:  '#a3d2ca',
     backgroundImage: 'none',
+    backgroundSize: "center",
+    backgroundRepeat: "no-repeat",
     [theme.breakpoints.up('sm')]: {
       backgroundColor: 'none',
     },
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${banner})`,
+      backgroundRepeat: "none",
+    },
+    [theme.breakpoints.up('lx')]: {
+      backgroundImage: `url(${bannerLarge})`,
+      backgroundRepeat: "none",
     },
 
   },
@@ -28,7 +36,8 @@ const useStyles = makeStyles(theme => ({
     // },
     [theme.breakpoints.up('md')]: {
       backgroundImage: 'none',
-      height: "580px"
+      height: "580px",
+      
     },
   },
   bottom: {
@@ -63,6 +72,7 @@ export const FrontPage = () => {
         container
         direction="row"
         alignItems="center"
+        justifyContent="center"
       >
        {/* {showText && <Typography variant="h1">Appear when 600px and above</Typography>} */}
     <CardActionArea className={classes.top}>

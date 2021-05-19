@@ -7,6 +7,7 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import SearchArtists from "./SearchArtists"
 import SearchTitle from "./SearchTitle"
 import SearchResult from "./SearchResult"
+import SorryNotFound from "../components/SorryNotFound"
 
 
 
@@ -64,10 +65,10 @@ const SearchPage = () => {
         alignItems="center"
         >
       <div>
-        <SearchArtists onSearchResult={letUsSeeSongByArtist} />
+          {typeof songs === 'string' ? <SorryNotFound /> :  <SearchArtists onSearchResult={letUsSeeSongByArtist} />}
       </div>
       <div>
-        <SearchTitle onSearchResult={letUsSeeSongsByTitle} />
+      {typeof songs  === 'string' ? <SorryNotFound /> :<SearchTitle onSearchResult={letUsSeeSongsByTitle} />}
       </div>
    
     </Grid>
