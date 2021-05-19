@@ -17,6 +17,7 @@ const Loader = () => {
   return (
     <div className={classes.root}>
       <CircularProgress />
+      <p>laddar...</p>
       <CircularProgress color="secondary" />
     </div>
   );

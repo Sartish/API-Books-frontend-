@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { CardActionArea, CardContent, CardMedia, Typography, Grid, Paper, Button, Box, Container } from "@material-ui/core";
 import image from "./one.png"
+import Loader from "../components/Loader"
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
 const font =  "'Montserrat', sans-serif";
@@ -74,6 +75,7 @@ const useStyles = makeStyles({
 export const TopRated = () => {
   const classes = useStyles();
   const [songs, setSongs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetch("https://saras-mongo-api.herokuapp.com/songs/top-rated")
@@ -81,17 +83,20 @@ export const TopRated = () => {
       .then((json) => {
         setSongs(json.data) 
       });
+      setIsLoading(false)
   }, []);
+
 
   return (
 
     <>
+    {isLoading && <Loader/>}
       <Container>
         <Box {...defaultProps} borderLeft={0} borderRight={0} >
           <p className={classes.text}>All nr One songs <MusicNoteIcon className={classes.note} /> </p>
           </Box>
           <Box {...defaultProps} borderLeft={0} borderRight={0} >
-          <p className={classes.paragraph}>Her you find all songs that has been number ONE on Billboard</p>
+          <p className={classes.paragraph}>Here you find all songs that has been number ONE on Billboard</p>
         </Box>
         <Grid
           container

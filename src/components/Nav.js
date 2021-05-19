@@ -22,11 +22,7 @@ const useStyles = makeStyles({
     home: {
     textDecoration: "none",
     fontFamily: font,
-    marginTop: "5px",
     color: "#404040",
-    '&:hover': {
-      color: "#f05945",
-    }
     },
     library: {
     textDecoration: "none",
@@ -55,8 +51,11 @@ const useStyles = makeStyles({
     },
     homeIcon: {
     fontSize: "30px",
-    color: "#f05945",
+    color: "#404040",
+    '&:hover': {
+      color: "#f05945",
     }
+  }
 
 })
 

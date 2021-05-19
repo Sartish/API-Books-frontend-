@@ -6,7 +6,7 @@ import { SongsList } from "./pages/SongsList";
 import { OneSong } from "./pages/OneSong";
 import { TopRated } from "./pages/TopRated";
 import { Nav } from "./components/Nav"
-import SearchPage from "./pages/SearchPage";
+import SearchTitle from "./pages/SearchTitle";
 import About from "./pages/About"
 
 //path  Its most basic responsibility is to render some UI when its path matches the current URL.
@@ -20,7 +20,7 @@ export const App = () => {
         </Route>
 
         <Route path="/songs/search"exact>
-        <SearchPage />
+        <SearchTitle />
         </Route>
 
         <Route path="/songs/song/:id" exact>

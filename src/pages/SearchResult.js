@@ -43,11 +43,11 @@ const useStyles = makeStyles({
         fontWeight: "bold"
       },
       button: {
-        backgroundColor: "lightgrey",
-        margin: "5px",
-        color: "#f05945",
-        fontWeight: "bold",
-        fontFamily: font
+      backgroundColor: "lightgrey",
+      margin: "5px",
+      color: "#f05945",
+      fontWeight: "bold",
+      fontFamily: font
       },
       link: {
         textDecoration: "none"
@@ -64,7 +64,7 @@ const SearchResult = ({ songs }) => {
         <Grid
         container
         direction="row"
-        justify="space-around"
+        justify="center"
         alignItems="center"
     >
     {songs.map((song) => (
@@ -113,4 +113,5 @@ const SearchResult = ({ songs }) => {
 </Container>
     )
 }
+
 export default SearchResult
