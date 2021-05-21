@@ -51,6 +51,10 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     fontFamily: font
   },
+  description: {
+    fontFamily: font,
+    lineHeight: 1.4,
+  }
 
 })
 
@@ -75,10 +79,8 @@ export const OneSong = () => {
     <div className={classes.wrapper}>
       <Container className={classes.container}>
         <Box {...defaultProps} borderLeft={0} borderRight={0} >
-              <p className={classes.text}>About the song...</p>
-              <MusicNoteIcon className={classes.note} /> 
+              <p className={classes.text}>About the song..<MusicNoteIcon className={classes.note} /></p>
         </Box>
-        
         <Grid
           container
           direction="row"
@@ -97,7 +99,7 @@ export const OneSong = () => {
             <h3>Released: {song.released}</h3>
             <h3>Record position: nr {song.position}</h3>
             <h3>Writers thoughts about the song...</h3>
-            <p>{song.description}</p>
+            <p className={classes.description}>{song.description}</p>
         </Paper>
       </div>
       </Grid>
