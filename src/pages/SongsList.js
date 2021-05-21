@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container, Box } from "@material-ui/core";
-import image from "./cd.png"
+import image from "../assets/cd.png"
 import { FrontPage } from "./FrontPage";
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   },
   text: {
     fontFamily: font,
-    fontSize: "40px",
+    fontSize: "35px",
     marginLeft: "20px",
     color: "#989898",
     fontWeight: "bold"
@@ -101,8 +101,7 @@ export const SongsList = () => {
       <FrontPage />
       <Container>
       <Box {...defaultProps} borderLeft={0} borderRight={0} >
-        <p className={classes.text}>All 500 songs</p>
-        <MusicNoteIcon className={classes.note} />
+        <p className={classes.text}>All 500 songs<MusicNoteIcon className={classes.note} /></p>
       </Box>
       <div className={classes.pages}>
         <Button variant="primary" className={classes.button} onClick={movePreviousPage} disabled={pageNumber === 1}>Previous</Button>

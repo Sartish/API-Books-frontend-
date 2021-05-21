@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
   text: {
     fontFamily: font,
-    fontSize: "40px",
+    fontSize: "30px",
     marginLeft: "20px",
     color: "#989898",
     fontWeight: "bold"
@@ -87,7 +87,7 @@ const SearchTitle = () => {
           <p className={classes.text}>Search for a song <MusicNoteIcon className={classes.note} /> </p>
           </Box>
           <Box {...defaultProps} borderLeft={0} borderRight={0} >
-          <p className={classes.paragraph}>Search for your favorite song and see if it is amongst 500 greatest songs!</p>
+          <p className={classes.paragraph}>Search for your favorite song and see if it is amongst 500 of the greatest songs!</p>
         </Box>
       <Grid
         className={classes.grid}

@@ -1,57 +1,56 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from "@material-ui/styles";
-import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container, Box } from "@material-ui/core";
-import image from "./cd.png"
+import { CardActionArea, CardMedia, CardContent, Typography, Grid, Paper, Button, Container} from "@material-ui/core";
+import image from "../assets/cd.png"
 
 const font =  "'Montserrat', sans-serif";
 
-
 const useStyles = makeStyles({
-    pages: {
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: "20px",
-        marginLeft: "40px",
-        marginRight: "40px",
-        color: "#989898",
-        fontSize: "20px",
-        fontWeight: "bold"
-      },
-      paper: {
-        textAlign: 'left',
-        padding: "20px",
-        width: "300px",
-        height: "470px",
-        margin: "20px",
-        backgroundColor: "#fcecdd",
-        fontFamily: font,
-        color: "#404040",
-      },
-      heading: {
-        backgroundColor: "#5eaaa8",
-        borderRadius: "10px",
-        padding: "20px",
-        fontFamily: font,
-        color: "#404040",
-      },
-      header: {
-        height: "400px",
-        width: "300px"
-      },
-      span: {
-        fontWeight: "bold"
-      },
-      button: {
-      backgroundColor: "lightgrey",
-      margin: "5px",
-      color: "#f05945",
-      fontWeight: "bold",
-      fontFamily: font
-      },
-      link: {
-        textDecoration: "none"
-      }
+  pages: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: "20px",
+      marginLeft: "40px",
+      marginRight: "40px",
+      color: "#989898",
+      fontSize: "20px",
+      fontWeight: "bold"
+    },
+    paper: {
+      textAlign: 'left',
+      padding: "20px",
+      width: "300px",
+      height: "470px",
+      margin: "20px",
+      backgroundColor: "#fcecdd",
+      fontFamily: font,
+      color: "#404040",
+    },
+    heading: {
+      backgroundColor: "#5eaaa8",
+      borderRadius: "10px",
+      padding: "20px",
+      fontFamily: font,
+      color: "#404040",
+    },
+    header: {
+      height: "400px",
+      width: "300px"
+    },
+    span: {
+      fontWeight: "bold"
+    },
+    button: {
+    backgroundColor: "lightgrey",
+    margin: "5px",
+    color: "#f05945",
+    fontWeight: "bold",
+    fontFamily: font
+    },
+    link: {
+      textDecoration: "none"
+    }
 })  
 // songs as a prop, that will render in the search Artist component 
 const SearchResult = ({ songs }) => {

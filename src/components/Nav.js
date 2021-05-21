@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-// import { FormHelperText, Menu } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import HomeIcon from '@material-ui/icons/Home'
 
@@ -42,12 +41,12 @@ const useStyles = makeStyles({
 
     },
     about: {
-        textDecoration: "none",
-        marginLeft: "25px",
-        color: "#404040",
-        '&:hover': {
-          color: "#f05945",
-        }
+      textDecoration: "none",
+      marginLeft: "25px",
+      color: "#404040",
+      '&:hover': {
+        color: "#f05945",
+      }
     },
     homeIcon: {
     fontSize: "30px",
@@ -76,7 +75,7 @@ export const Nav = () => {
         </NavLink>
 
         <NavLink className={classes.chart} to="/songs/top-rated">
-            Billboard chart
+            Top list
         </NavLink>
 
         <NavLink className={classes.about} to="/songs/about">

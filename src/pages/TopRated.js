@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import { CardActionArea, CardContent, CardMedia, Typography, Grid, Paper, Button, Box, Container } from "@material-ui/core";
-import image from "./one.png"
+import image from "../assets/one.png"
 import Loader from "../components/Loader"
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 

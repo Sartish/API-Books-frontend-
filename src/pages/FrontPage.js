@@ -1,9 +1,9 @@
 import React from "react";
 import { CardActionArea, Typography, Grid, makeStyles, useTheme, useMediaQuery} from "@material-ui/core";
-import front from "./Aretha-front.jpeg"
-import header from "./small.png"
-import banner from "./gold.png"
-import bannerLarge from "./banner.lg.png"
+import front from "../assets/Aretha-front.jpeg"
+import header from "../assets/small.png"
+import banner from "../assets/gold.png"
+import bannerLarge from "../assets/banner.lg.png"
 
 const useStyles = makeStyles(theme => ({
   grid: {
