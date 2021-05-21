@@ -75,7 +75,7 @@ export const Nav = () => {
         </NavLink>
 
         <NavLink className={classes.chart} to="/songs/top-rated">
-            Top list
+            Toplist
         </NavLink>
 
         <NavLink className={classes.about} to="/songs/about">
