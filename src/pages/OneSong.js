@@ -90,7 +90,7 @@ export const OneSong = () => {
         
         <div className={classes.root}>
         <Paper className={classes.paper} elevation={3}>
-        <Link className={classes.link} to="/songs" exact="true">
+        <Link className={classes.link} to="/" exact="true">
         <Button className={classes.button}>Back to library</Button>
         </Link>
           <h1>🎶 {song.title} by {song.artist}</h1> 
