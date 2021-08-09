@@ -1,4 +1,4 @@
-# Technigo React Starter App
+# Music toplist
 
 This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
 
@@ -17,3 +17,6 @@ Alternatively, if you don't want a new git repo on your account;
 1. Open the directory in the terminal: `cd /path/to/react-starter`
 1. Install required dependencies with npm: `npm install`
 1. Start the project: `npm start`
+
+View live: https://greatest-songs-500.netlify.app
+Baackend: (express in node.js): https://github.com/Sartish/project-mongo-api
